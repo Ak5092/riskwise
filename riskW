@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiskWise - EDI Consulting for Hamilton</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #F0F4F8;
+            color: #2A2A2A;
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(90deg, #1E90FF, #FF6F61);
+            color: #FFFFFF;
+            padding: 2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FFD700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #98FB98;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1E90FF, #FF6F61, #9370DB);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 8rem 3rem;
+            border-bottom: 6px solid #FFD700;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            color: #F0E68C;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto 2.5rem;
+            color: #E6E6FA;
+        }
+
+        .cta {
+            background-color: #FF4500;
+            color: #FFFFFF;
+            border: 2px solid #FFD700;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta:hover {
+            background-color: #FFD700;
+            color: #FF4500;
+        }
+
+        /* Sections */
+        .section {
+            padding: 4rem 3rem;
+            max-width: 1300px;
+            margin: 2rem auto;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid;
+        }
+
+        .section:nth-child(odd) {
+            border-left-color: #20B2AA;
+        }
+
+        .section:nth-child(even) {
+            border-left-color: #FF69B4;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #4682B4;
+            border-bottom: 3px dashed #98FB98;
+        }
+
+        .section h2 i {
+            font-size: 2rem;
+            color: #FF4500;
+        }
+
+        .section p, .section ul {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #2F4F4F;
+        }
+
+        .section ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .section ul li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section ul li i {
+            color: #9370DB;
+            font-size: 1.3rem;
+        }
+
+        /* Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 700px;
+            margin: 2rem auto;
+            background-color: #F9F9F9;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 3px solid #20B2AA;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #FF69B4;
+        }
+
+        input, textarea {
+            padding: 1rem;
+            border: 2px solid #A9A9A9;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #9370DB;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            background-color: #20B2AA;
+            color: #FFFFFF;
+            border: none;
+            padding: 1.2rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #FF4500;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, #A9A9A9, #FF69B4, #20B2AA);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.1rem;
+            border-top: 4px solid #FFD700;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 4rem 3rem;
+            max-width: 1300px;
+            margin: 2rem auto;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq h3 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #FF4500;
+        }
+
+        .faq h3 i {
+            font-size: 2rem;
+            color: #9370DB;
+        }
+
+        details {
+            margin: 1.5rem 0;
+            background-color: #F9F9F9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid #98FB98;
+        }
+
+        summary {
+            cursor: pointer;
+            color: #20B2AA;
+            font-weight: 600;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        summary i {
+            font-size: 1.2rem;
+            color: #FF69B4;
+        }
+
+        details[open] p {
+            padding: 1rem 0;
+            font-size: 1.1rem;
+            color: #2F4F4F;
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background-color: #FFFFFF;
+            color: #333;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 350px;
+            border: 3px solid #FF69B4;
+        }
+
+        .chat-widget.active {
+            display: flex;
+        }
+
+        .chat-widget h4 {
+            color: #9370DB;
+            font-size: 1.5rem;
+        }
+
+        .chat-widget input {
+            border-color: #20B2AA;
+        }
+
+        .chat-widget button {
+            background-color: #FF4500;
+            color: #FFFFFF;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .chat-widget button:hover {
+            background-color: #9370DB;
+        }
+
+        .chat-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #20B2AA;
+            color: #FFFFFF;
+            border: none;
+            padding: 1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            background-color: #FF4500;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 5rem 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section, .faq {
+                padding: 2.5rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .chat-widget {
+                width: 280px;
+                bottom: 80px;
+            }
+        }
+
+        /* Accessibility */
+        a:focus, button:focus {
+            outline: 3px solid #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">RiskWise</div>
+        <ul class="nav-links">
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="#edi"><i class="fas fa-balance-scale"></i> EDI Plan</a></li>
+            <li><a href="#recruitment"><i class="fas fa-briefcase"></i> Recruitment</a></li>
+            <li><a href="#development"><i class="fas fa-graduation-cap"></i> Development</a></li>
+            <li><a href="#succession"><i class="fas fa-arrow-up"></i> Succession</a></li>
+            <li><a href="#policy"><i class="fas fa-file-alt"></i> Policy Reform</a></li>
+            <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Homepage -->
+    <section id="home" class="hero">
+        <h1>Empowering Hamilton with Safety and Inclusion</h1>
+        <p>Welcome to RiskWise Consulting! We’re thrilled to partner with the City of Hamilton to revolutionize its workplace culture. Our mission is to dismantle outdated practices, champion equity, diversity, and inclusion (EDI), and create a City Hall where every employee thrives and every resident feels represented. With over a decade of expertise, we’re bringing bold solutions to tackle hiring challenges, foster growth, and build a vibrant, inclusive future for Hamilton.</p>
+        <button class="cta">Discover Our Vision</button>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="section">
+        <h2><i class="fas fa-info-circle"></i> About RiskWise</h2>
+        <p>RiskWise Consulting has been a beacon of change for over 12 years, serving municipalities and organizations across Ontario and beyond. Specializing in human resource management, workplace safety auditing, and Equity, Diversity, and Inclusion (EDI), we’ve transformed workplaces in cities like Toronto, Ottawa, and London. Our proven track record includes increasing staff satisfaction by 40% and reducing safety incidents by 25% in our client organizations.</p>
+        <p>Based in the heart of Ontario, RiskWise was founded on a simple belief: every workplace should be safe, fair, and inclusive. For the City of Hamilton, we’re addressing critical resident concerns—such as a lack of diversity—and staff frustrations with limited career mobility. Our approach blends innovative strategies with practical solutions, ensuring lasting impact. “I truly believe in the work we’re doing here,” says our lead consultant, reflecting our passion for Hamilton’s transformation.</p>
+        <p>We’re not just consultants; we’re partners in progress, committed to making Hamilton a model city for inclusivity by 2028.</p>
+    </section>
+
+    <!-- EDI Plan -->
+    <section id="edi" class="section">
+        <h2><i class="fas fa-balance-scale"></i> Equity, Diversity, and Inclusion Plan</h2>
+        <p>The City of Hamilton stands at a crossroads: with no formal EDI plan, staff feel undervalued, and residents—25% of whom are immigrants—see a lack of representation. RiskWise’s bold strategy sets ambitious targets: boost underrepresented group representation by 20% by 2028, eliminate policy bias by Q4 2025, achieve an 85% staff satisfaction rate by 2027, and reduce workplace complaints by 50% within five years.</p>
+        <p>Our multi-layered plan tackles systemic barriers and cultural shifts head-on:</p>
+        <ul>
+            <li><i class="fas fa-chalkboard-teacher"></i> <strong>Mandatory EDI Training</strong>: Starting Q2 2025, all 1,200 City Hall employees will undergo 8-hour workshops on unconscious bias, cultural competence, allyship, and microaggressions, with annual refreshers and online modules.</li>
+            <li><i class="fas fa-users-cog"></i> <strong>Employee Resource Groups (ERGs)</strong>: Launch five ERGs by mid-2025—BIPOC, LGBTQ+, Women in Leadership, Disability Advocates, and Newcomers—each with $5,000 budgets for events, mentorship, and policy input.</li>
+            <li><i class="fas fa-poll"></i> <strong>Annual EDI Surveys</strong>: Beginning 2026, conduct comprehensive surveys aiming for 90% participation, with results driving actionable changes and shared publicly in annual reports.</li>
+            <li><i class="fas fa-user-shield"></i> <strong>Leadership Accountability</strong>: Starting 2027, tie EDI goals to managers’ performance evaluations, offering bonuses for exceeding diversity targets and hosting quarterly leadership forums.</li>
+            <li><i class="fas fa-handshake"></i> <strong>Community Engagement</strong>: Host quarterly town halls and partner with local schools and nonprofits to align EDI efforts with Hamilton’s diverse population, targeting 500 attendees annually.</li>
+        </ul>
+    </section>
+
+    <!-- Recruitment & Selection -->
+    <section id="recruitment" class="section">
+        <h2><i class="fas fa-briefcase"></i> Recruitment & Selection Strategy</h2>
+        <p>Hamilton’s current hiring practices—over-reliant on resumes and traditional interviews—exclude diverse talent and perpetuate bias. RiskWise is introducing a cutting-edge recruitment overhaul to prioritize fairness, skills, and inclusivity. “We need to ensure everyone has an equal shot at success,” our lead consultant emphasizes, and this starts with how we hire.</p>
+        <p>Our strategy, informed by global trends and local realities, includes:</p>
+        <ul>
+            <li><i class="fas fa-eye-slash"></i> <strong>Blind Recruitment</strong>: Strip applications of names, gender, and education dates, reducing bias by 30% (per Toronto’s model), with software implemented by Q3 2025.</li>
+            <li><i class="fas fa-tasks"></i> <strong>Skills-Based Assessments</strong>: Replace 50% of interviews with practical tests—like drafting a community memo or solving a budget scenario—scored objectively, rolling out in 2026.</li>
+            <li><i class="fas fa-user-friends"></i> <strong>Diverse Interview Panels</strong>: Require three-member panels with varied backgrounds for all hires by 2026, trained in bias awareness with a $10,000 annual budget.</li>
+            <li><i class="fas fa-hands-helping"></i> <strong>Community Outreach</strong>: Collaborate with Hamilton Immigrant Services, Mohawk College, and Indigenous councils to recruit 50+ diverse candidates yearly, starting 2025.</li>
+            <li><i class="fas fa-ad"></i> <strong>Inclusive Job Postings</strong>: Revamp listings with gender-neutral language, accessibility options, and flexible work highlights, aiming for a 25% application increase by 2027.</li>
+        </ul>
+    </section>
+
+    <!-- Employee Development -->
+    <section id="development" class="section">
+        <h2><i class="fas fa-graduation-cap"></i> Employee Development & Growth</h2>
+        <p>City Hall’s 1,200 employees deserve more than stagnation—they need growth. RiskWise’s “Hamilton Learns” initiative is a transformative plan to unlock potential, boost morale, and retain talent, addressing staff complaints about limited opportunities head-on.</p>
+        <p>Our five-year roadmap includes:</p>
+        <ul>
+            <li><i class="fas fa-laptop-code"></i> <strong>Training Programs</strong>: Launch 20+ courses in 2025—leadership, EDI, project management, data analysis, and customer service—with $75,000 funding, available online and in-person, targeting 80% participation.</li>
+            <li><i class="fas fa-user-tie"></i> <strong>Mentorship</strong>: Pair 200 junior staff with senior leaders in 6-month cycles starting Q3 2025, with bi-weekly check-ins and a focus on skill-building and networking.</li>
+            <li><i class="fas fa-star"></i> <strong>Strengths-Based Reviews</strong>: Transition to bi-annual reviews by 2027, emphasizing development goals over criticism, with personalized feedback for all employees.</li>
+            <li><i class="fas fa-map-signs"></i> <strong>Career Pathways</strong>: Map advancement tracks for all roles by 2026, enrolling 50% of staff in tailored plans, with annual updates based on performance.</li>
+            <li><i class="fas fa-award"></i> <strong>Recognition Program</strong>: Launch “Hamilton Heroes” in 2025, awarding $10,000 in quarterly prizes for innovation, teamwork, and inclusivity, judged by peers and leadership.</li>
+        </ul>
+    </section>
+
+    <!-- Succession Planning -->
+    <section id="succession" class="section">
+        <h2><i class="fas fa-arrow-up"></i> Succession Planning</h2>
+        <p>With 30% of Hamilton’s workforce nearing retirement, the City faces potential leadership voids. RiskWise’s succession plan ensures continuity, builds a pipeline of talent, and safeguards institutional knowledge for the next decade.</p>
+        <p>Our robust framework includes:</p>
+        <ul>
+            <li><i class="fas fa-search"></i> <strong>Talent Mapping</strong>: Assess hgugall 1,200 employees annually starting 2026, identifying 50 high-potential candidates using performance metrics, 360-degree feedback, and aptitude tests.</li>
+            <li><i class="fas fa-users"></i> <strong>“Future Leaders” Program</strong>: Enroll 20 staff in a 12-month rotational program across departments in 2026, with a $20,000 budget for training, shadowing, and certifications.</li>
+            <li><i class="fas fa-exchange-alt"></i> <strong>Knowledge Transfer</strong>: Mandate retiring staff to document processes and train successors over 6 months, targeting 25 transitions by 2027, with a digital knowledge bank by 2028.</li>
+            <li><i class="fas fa-calendar-check"></i> <strong>Biennial Review</strong>: Update the plan every two years starting 2027, incorporating staff surveys and council priorities, with a goal of 95% key role coverage.</li>
+            <li><i class="fas fa-chart-line"></i> <strong>Success Metrics</strong>: Achieve 95% of critical positions with identified successors by 2028, reducing vacancy downtime by 50%.</li>
+        </ul>
+    </section>
+
+    <!-- Policy Reform -->
+    <section id="policy" class="section">
+        <h2><i class="fas fa-file-alt"></i> Policy Reform</h2>
+        <p>Hamilton’s City charter and policies—laden with outdated, gendered terms—alienate modern staff and residents. RiskWise is leading a full-scale reform, starting with the Employee Code of Conduct, to align with 21st-century values of equity and respect.</p>
+        <p><strong>Sample Revisions:</strong></p>
+        <ul>
+            <li><i class="fas fa-edit"></i> <strong>Old:</strong> “All men employed by the City shall adhere to professional standards.”<br><strong>New:</strong> “All employees, regardless of gender or identity, shall uphold professional standards.”</li>
+            <li><i class="fas fa-edit"></i> <strong>Old:</strong> “Chairman oversees meetings.”<br><strong>New:</strong> “Chairperson or designated leader oversees meetings.”</li>
+            <li><i class="fas fa-edit"></i> <strong>Old:</strong> “He shall report absences.”<br><strong>New:</strong> “They shall report absences promptly.”</li>
+            <li><i class="fas fa-edit"></i> <strong>Old:</strong> “Workmen maintain facilities.”<br><strong>New:</strong> “Workers maintain facilities efficiently.”</li>
+        </ul>
+        <p>We’ll complete a comprehensive charter review by December 2025, engaging 100 staff and 200 residents in focus groups. With a $15,000 budget, updates will roll out in three phases: Q2 2025 (initial revisions), Q4 2025 (full draft), and Q2 2026 (final adoption).</p>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" class="section">
+        <h2><i class="fas fa-book"></i> Resources & Compliance</h2>
+        <p>RiskWise equips Hamilton with a treasure trove of resources to sustain EDI efforts. From practical tools to legal guides, we’ve got you covered:</p>
+        <ul>
+            <li><i class="fas fa-download"></i> <a href="#">EDI Implementation Checklist</a> - A 10-page guide with timelines, templates, and KPIs for policy updates.</li>
+            <li><i class="fas fa-globe"></i> <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">WCAG 2.1 Guidelines</a> - Ensure digital accessibility for all staff and residents.</li>
+            <li><i class="fas fa-file-pdf"></i> <a href="#">Toronto EDI Case Study</a> - Learn how Toronto boosted diversity by 15% in three years.</li>
+            <li><i class="fas fa-video"></i> <a href="#">EDI Training Video Series</a> - Free 5-part series covering bias, inclusion, and leadership, perfect for onboarding.</li>
+            <li><i class="fas fa-link"></i> <a href="#">Ontario HR Compliance Guide</a> - Key regulations for municipalities, updated 2025.</li>
+        </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+        <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+        <p>Ready to make City Hall a leader in inclusion? RiskWise is your partner in this journey. Whether you’re a staff member seeking growth, a resident advocating for change, or a councilor planning for the future, we’re here to listen and act. Reach out for a free consultation, detailed proposal, or just to chat about Hamilton’s potential.</p>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required placeholder="Tell us how we can assist you" rows="5"></textarea>
+            <button type="submit">Send Your Inquiry</button>
+        </form>
+        <p><strong>Phone:</strong> 1-800-RISKWISE (747-5947)<br><strong>Email:</strong> info@riskwise.com<br><strong>Office:</strong> 123 Inclusion Way, Hamilton, ON L8P 1H1<br><strong>Hours:</strong> Mon-Fri, 9 AM - 5 PM</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 RiskWise Consulting. All rights reserved. Building safer, fairer, and more vibrant workplaces across Ontario and beyond.</p>
+    </footer>
+
+    <!-- FAQ -->
+    <div class="faq">
+        <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+        <details>
+            <summary><i class="fas fa-info-circle"></i> What is EDI and why does it matter?</summary>
+            <p>Equity, Diversity, and Inclusion (EDI) ensures fair treatment, representation, and opportunity for all. In Hamilton, where over 25% of residents are immigrants and 15% identify as visible minorities, EDI is crucial for reflecting the community, boosting staff morale, and enhancing public trust.</p>
+        </details>
+        <details>
+            <summary><i class="fas fa-hands-helping"></i> How will RiskWise help the City?</summary>
+            <p>We’re deploying a $250,000, 3-year project to overhaul hiring, training, succession, and policies. Our aim: position City Hall as a top Ontario employer by 2028, with a 20% increase in diversity and 30% higher retention rates.</p>
+        </details>
+        <details>
+            <summary><i class="fas fa-clock"></i> How long will this take?</summary>
+            <p>Phase 1 (policy updates, training) launches Q4 2025, with full implementation by 2028. Quarterly reports will track progress, ensuring transparency for council and residents alike.</p>
+        </details>
+    </div>
+
+    <!-- Chat Widget -->
+    <button class="chat-toggle"><i class="fas fa-comments"></i></button>
+    <div class="chat-widget">
+        <h4><i class="fas fa-headset"></i> Live Chat Support</h4>
+        <p>Welcome to RiskWise! Have questions about our EDI plan, need implementation tips, or just want to chat? Our team is here 24/7 to support you.</p>
+        <input type="text" placeholder="Type your message..." id="chat-input">
+        <button id="chat-send">Send Message</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Form Submission
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name && email && message) {
+                alert(`Thank you, ${name}! Your inquiry has been received:\nEmail: ${email}\nMessage: ${message}\nExpect a response within 24 hours.`);
+                form.reset();
+            } else {
+                alert('Please fill out all fields to submit your inquiry.');
+            }
+        });
+
+        // Chat Widget Toggle
+        const chatToggle = document.querySelector('.chat-toggle');
+        const chatWidget = document.querySelector('.chat-widget');
+        chatToggle.addEventListener('click', function() {
+            chatWidget.classList.toggle('active');
+            chatToggle.style.display = chatWidget.classList.contains('active') ? 'none' : 'block';
+        });
+
+        // Chat Send
+        document.getElementById('chat-send').addEventListener('click', function() {
+            const chatInput = document.getElementById('chat-input');
+            if (chatInput.value.trim()) {
+                alert(`Your message: "${chatInput.value}"\nThank you! A RiskWise representative will follow up soon (simulated response).`);
+                chatInput.value = '';
+                chatWidget.classList.remove('active');
+                chatToggle.style.display = 'block';
+            } else {
+                alert('Please enter a message before sending.');
+            }
+        });
+    </script>
+</body>
+</html>
